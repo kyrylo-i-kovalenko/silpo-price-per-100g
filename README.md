@@ -1,4 +1,10 @@
-# silpo-price-per-100g
+# Silpo Price Calculator
+
+![CI](https://github.com/USERNAME/silpo-price-calculator/actions/workflows/ci.yml/badge.svg)
+![Manifest V3](https://img.shields.io/badge/Chrome-Manifest%20V3-4285F4)
+![Permissions](https://img.shields.io/badge/permissions-none-success)
+
+**English** | [Українська](README.uk.md)
 
 A Chrome extension for [silpo.ua](https://silpo.ua), one of Ukraine's largest grocery chains. It shows the price per 100 g, 100 ml or 1 piece on every product card and highlights the best deals on the page.
 
@@ -30,9 +36,9 @@ Why rank and not a min-max scale: on the milk page, a few flavoured drinks at 21
 
 This is a vibe-coding project: an AI assistant wrote the code from my task descriptions, while I set the requirements, tested the result on the live site and decided what to change.
 
-**Tools:**  Claude
+**Tools:** Claude
 
-**Versions 1–3.** Basic price per 100 g/ml, then more reliable selectors, then colour highlighting. 
+**Versions 1–3.** Basic price per 100 g/ml, then more reliable selectors, then colour highlighting.
 
 **Version 4: a bug found in real use.** After scrolling, every badge turned grey. What was done together with the AI:
 
@@ -40,6 +46,8 @@ This is a vibe-coding project: an AI assistant wrote the code from my task descr
 2. Found the cause: a global price array was cleared on every run, while cards that already had a badge were skipped before their price was added back. A re-run happened on every scroll because of one card whose pack size is missing on the site itself.
 3. The investigation surfaced more issues: the multi-buy price was treated as the promo price, and outliers broke the colour scale.
 4. Rewrote the logic so that nothing is kept between runs, added a regression test for this exact bug and verified the result on the live silpo.ua.
+
+Full list of changes in [CHANGELOG.md](CHANGELOG.md) (in Ukrainian).
 
 ## Project structure
 
@@ -78,4 +86,3 @@ For debugging, set `DEBUG = true` in `src/content.js`.
 ## License
 
 MIT
-

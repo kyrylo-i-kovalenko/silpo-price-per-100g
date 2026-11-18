@@ -1,0 +1,98 @@
+/* Silpo Price Calculator v4: unit price badge.
+   All names are prefixed with "spc-" so they cannot clash with the site. */
+
+.spc-badge {
+  --spc-bg: #f1f3f5;
+  --spc-fg: #3b4651;
+  --spc-accent: #9aa5b1;
+
+  box-sizing: border-box;
+  max-width: 100%;
+  margin: 6px 0 8px;
+  padding: 5px 8px 5px 9px;
+  border-left: 4px solid var(--spc-accent);
+  border-radius: 8px;
+  background: var(--spc-bg);
+  color: var(--spc-fg);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.3;
+  text-align: left;
+  animation: spc-fade-in 0.2s ease-out;
+}
+
+.spc-badge__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0 8px;
+}
+
+.spc-badge__amount {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.spc-badge__unit {
+  font-size: 12px;
+}
+
+.spc-badge__tier {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.spc-badge__offer {
+  margin-top: 1px;
+  font-size: 12px;
+}
+
+.spc-badge__offer[hidden] {
+  display: none;
+}
+
+/* Tiers. Dark text on a light tint keeps contrast above WCAG AA (4.5:1),
+   and the text label means colour is not the only signal. */
+.spc-badge--best {
+  --spc-bg: #e6f5ec;
+  --spc-fg: #0e6332;
+  --spc-accent: #1f9d55;
+}
+
+.spc-badge--average {
+  --spc-bg: #fff2dc;
+  --spc-fg: #7c4300;
+  --spc-accent: #f59e0b;
+}
+
+.spc-badge--worst {
+  --spc-bg: #fdeceb;
+  --spc-fg: #9f1c1c;
+  --spc-accent: #e5484d;
+}
+
+.spc-badge--neutral {
+  --spc-bg: #f1f3f5;
+  --spc-fg: #3b4651;
+  --spc-accent: #9aa5b1;
+}
+
+@keyframes spc-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spc-badge {
+    animation: none;
+  }
+}
