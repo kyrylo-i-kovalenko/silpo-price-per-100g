@@ -1,12 +1,19 @@
 name: Release
 
-# Runs when a version tag such as v4.0.0 is pushed.
+# Runs when a version tag such as v4.0.0 is pushed, or when a release is
+# published from the GitHub web page (Releases > Draft a new release).
 # Checks that the tag matches manifest.json, runs lint and tests,
-# builds the zip and publishes it as a GitHub release.
+# builds the zip and attaches it to the GitHub release (creating the
+# release if it does not exist yet).
 on:
   push:
     tags:
       - "v*"
+  release:
+    types: [published]
+
+concurrency:
+  group: release-${{ github.ref_name }}
 
 permissions:
   contents: write
@@ -46,6 +53,15 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "$GITHUB_REF_NAME" "dist/silpo-price-calculator-${VERSION}.zip" \
-            --title "v${VERSION}" \
-            --notes-file notes.md
+          zip="dist/silpo-price-calculator-${VERSION}.zip"
+          if gh release view "$GITHUB_REF_NAME" > /dev/null 2>&1; then
+            gh release upload "$GITHUB_REF_NAME" "$zip" --clobber
+            body=$(gh release view "$GITHUB_REF_NAME" --json body --jq .body)
+            if [ -z "$body" ]; then
+              gh release edit "$GITHUB_REF_NAME" --notes-file notes.md
+            fi
+          else
+            gh release create "$GITHUB_REF_NAME" "$zip" \
+              --title "v${VERSION}" \
+              --notes-file notes.md
+          fi
