@@ -79,8 +79,8 @@ For debugging, set `DEBUG = true` in `src/content.js`.
 ### Releasing
 
 1. Bump `version` in `manifest.json` and `package.json`, and add a section for it to `CHANGELOG.md`.
-2. Push a matching tag, for example `git tag v4.0.0 && git push origin v4.0.0`.
-3. The Release workflow checks the tag against the manifest, runs lint and tests, builds the zip and publishes a GitHub release with the CHANGELOG section as notes.
+2. Either push a matching tag (`git tag v4.0.0 && git push origin v4.0.0`), or on GitHub open **Releases > Draft a new release**, type the new tag (for example `v4.0.0`), leave the target as `main` and click **Publish release**.
+3. The Release workflow checks the tag against the manifest, runs lint and tests, builds the zip and attaches it to the release. If the release has no description, the CHANGELOG section is used.
 
 To build the zip locally: `npm run package` (writes `dist/silpo-price-calculator-<version>.zip`).
 
