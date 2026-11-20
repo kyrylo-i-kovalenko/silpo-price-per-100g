@@ -1,6 +1,6 @@
 # Silpo Price Calculator
 
-![CI](https://github.com/USERNAME/silpo-price-calculator/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/kyrylo-i-kovalenko/silpo-price-per-100g/actions/workflows/ci.yml/badge.svg)
 ![Manifest V3](https://img.shields.io/badge/Chrome-Manifest%20V3-4285F4)
 ![Permissions](https://img.shields.io/badge/permissions-none-success)
 
@@ -19,7 +19,7 @@ A Chrome extension for [silpo.ua](https://silpo.ua), one of Ukraine's largest gr
 
 ## Installation
 
-1. Download the zip from the latest [release](https://github.com/USERNAME/silpo-price-calculator/releases) and unpack it.
+1. Download the zip from the latest [release](https://github.com/kyrylo-i-kovalenko/silpo-price-per-100g/releases) and unpack it.
 2. Open `chrome://extensions` and turn on **Developer mode**.
 3. Click **Load unpacked** and select the folder that contains `manifest.json`.
 4. Open any product category on silpo.ua.
