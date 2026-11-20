@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint .",
     "test": "node --test",
-    "check": "npm run lint && npm test"
+    "check": "npm run lint && npm test",
+    "package": "scripts/package.sh"
   },
   "engines": {
     "node": ">=20"

@@ -1,6 +1,6 @@
 # Silpo Price Calculator
 
-![CI](https://github.com/USERNAME/silpo-price-calculator/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/kyrylo-i-kovalenko/silpo-price-per-100g/actions/workflows/ci.yml/badge.svg)
 ![Manifest V3](https://img.shields.io/badge/Chrome-Manifest%20V3-4285F4)
 ![Permissions](https://img.shields.io/badge/permissions-none-success)
 
@@ -19,7 +19,7 @@ A Chrome extension for [silpo.ua](https://silpo.ua), one of Ukraine's largest gr
 
 ## Installation
 
-1. Download the zip from the latest [release](https://github.com/USERNAME/silpo-price-calculator/releases) and unpack it.
+1. Download the zip from the latest [release](https://github.com/kyrylo-i-kovalenko/silpo-price-per-100g/releases) and unpack it.
 2. Open `chrome://extensions` and turn on **Developer mode**.
 3. Click **Load unpacked** and select the folder that contains `manifest.json`.
 4. Open any product category on silpo.ua.
@@ -75,6 +75,14 @@ npm run check   # both
 ```
 
 For debugging, set `DEBUG = true` in `src/content.js`.
+
+### Releasing
+
+1. Bump `version` in `manifest.json` and `package.json`, and add a section for it to `CHANGELOG.md`.
+2. Push a matching tag, for example `git tag v4.0.0 && git push origin v4.0.0`.
+3. The Release workflow checks the tag against the manifest, runs lint and tests, builds the zip and publishes a GitHub release with the CHANGELOG section as notes.
+
+To build the zip locally: `npm run package` (writes `dist/silpo-price-calculator-<version>.zip`).
 
 ## Limitations
 

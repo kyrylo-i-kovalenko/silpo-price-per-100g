@@ -1,6 +1,6 @@
 # Silpo Price Calculator
 
-![CI](https://github.com/USERNAME/silpo-price-calculator/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/kyrylo-i-kovalenko/silpo-price-per-100g/actions/workflows/ci.yml/badge.svg)
 ![Manifest V3](https://img.shields.io/badge/Chrome-Manifest%20V3-4285F4)
 ![Permissions](https://img.shields.io/badge/permissions-none-success)
 
@@ -19,7 +19,7 @@
 
 ## Встановлення
 
-1. Завантажте zip з останнього [релізу](https://github.com/USERNAME/silpo-price-calculator/releases) і розпакуйте.
+1. Завантажте zip з останнього [релізу](https://github.com/kyrylo-i-kovalenko/silpo-price-per-100g/releases) і розпакуйте.
 2. Відкрийте `chrome://extensions` і увімкніть **Developer mode**.
 3. Натисніть **Load unpacked** і виберіть папку з `manifest.json`.
 4. Відкрийте будь-яку категорію на silpo.ua.
